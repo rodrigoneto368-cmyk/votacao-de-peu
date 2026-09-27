@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neto</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #111827, #312e81, #7c3aed);
+    color: white;
+    overflow: hidden;
+  }
+  .card {
+    width: min(90%, 520px);
+    padding: 45px 30px;
+    text-align: center;
+    border-radius: 28px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.25);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  }
+  h1 { margin: 0 0 12px; font-size: 42px; }
+  p { margin: 0 0 28px; opacity: .85; }
+  button {
+    border: 0;
+    border-radius: 999px;
+    padding: 16px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background: white;
+    color: #312e81;
+    transition: transform .2s, box-shadow .2s;
+  }
+  button:hover { transform: scale(1.06); box-shadow: 0 10px 30px rgba(0,0,0,.3); }
+  #votacao {
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,.2);
+  }
+  #votacao h2 { margin: 0 0 8px; }
+  #votacao p { margin-bottom: 16px; }
+  .voto {
+    margin: 5px;
+    padding: 12px 22px;
+    font-size: 16px;
+  }
+  #resultado {
+    margin-top: 15px;
+    font-weight: bold;
+    min-height: 24px;
+  }
+  #mensagem {
+    display: none;
+    margin-top: 28px;
+    font-size: 30px;
+    font-weight: bold;
+    animation: aparecer .6s ease;
+  }
+  .brilho { font-size: 42px; }
+  @keyframes aparecer {
+    from { opacity: 0; transform: scale(.7) translateY(15px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="brilho">✨</div>
+    <h1>Uma mensagem para você</h1>
+    <p>Clique no botão para descobrir.</p>
+    <button onclick="mostrarMensagem()">CLIQUE AQUI 👀</button>
+    <div id="mensagem">🔥 PEU DA ENDOIDA É ZIKA! 🔥</div>
+    <section id="votacao">
+      <h2>🚭 O que vocês acham?</h2>
+      <p>Peu deve parar de fumar?</p>
+      <button class="voto" onclick="votar('Sim')">SIM 👍</button>
+      <button class="voto" onclick="votar('Não')">NÃO 👎</button>
+      <div id="resultado"></div>
+    </section>
+  </main>
+
+<script>
+function mostrarMensagem() {
+  document.getElementById("mensagem").style.display = "block";
+}
+
+function votar(opcao) {
+  document.getElementById("resultado").textContent =
+    "Você votou: " + opcao + " 👍";
+}
+</script>
+</body>
+</html>
